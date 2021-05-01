@@ -163,11 +163,6 @@ public class Customer extends javax.swing.JFrame {
                 ThemKHMouseClicked(evt);
             }
         });
-        ThemKH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ThemKHActionPerformed(evt);
-            }
-        });
 
         HuyKH.setBackground(new java.awt.Color(0, 85, 0));
         HuyKH.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -238,11 +233,6 @@ public class Customer extends javax.swing.JFrame {
         TimKH.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TimKHMouseClicked(evt);
-            }
-        });
-        TimKH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TimKHActionPerformed(evt);
             }
         });
 
@@ -544,10 +534,6 @@ public class Customer extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ThemKHMouseClicked
 
-    private void ThemKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThemKHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ThemKHActionPerformed
-
     private void HuyKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HuyKHMouseClicked
         // TODO add your handling code here:
         TenKH.setText("");
@@ -617,10 +603,6 @@ public class Customer extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_TimKHMouseClicked
-
-    private void TimKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimKHActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TimKHActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
