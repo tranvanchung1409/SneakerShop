@@ -34,12 +34,15 @@ public class Splash extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 85, 0));
 
-        Phantram.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        Phantram.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
         Phantram.setForeground(new java.awt.Color(255, 255, 255));
         Phantram.setText("%");
+
+        Myprogress.setForeground(new java.awt.Color(200, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 25)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,10 +76,10 @@ public class Splash extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(Phantram)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Myprogress, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Myprogress, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

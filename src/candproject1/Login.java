@@ -6,6 +6,7 @@
 package candproject1;
 
 import Data.ClassData;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,22 +25,24 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
     }
-  Connection Con = null;
-  Statement St = null;
-  ResultSet Rs = null;
-  
-  public String role(){
-      String S = Role.getSelectedItem().toString();
-      String a = "Admin";
-      String b = "Seller";
-      if(S == a){         
-          return a;
-      }if(S == b) {
-          return b;
-      }
-        return null;  
-  }
-  
+    Connection Con = null;
+    Statement St = null;
+    ResultSet Rs = null;
+    private WellcomeScreen frame2;
+
+    public String role() {
+        String S = Role.getSelectedItem().toString();
+        String a = "Admin";
+        String b = "Seller";
+        if (S == a) {
+            return a;
+        }
+        if (S == b) {
+            return b;
+        }
+        return null;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,6 +72,11 @@ public class Login extends javax.swing.JFrame {
         MK = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("sdsds");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(565, 380));
+        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(0, 85, 0));
 
@@ -107,8 +115,11 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 260, 380);
 
         Role.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         Role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Seller" }));
@@ -189,6 +200,12 @@ public class Login extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel11.setText("Quên mật khẩu?");
 
+        MK.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MKKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -199,7 +216,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
                         .addGap(14, 14, 14)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(Role, 0, 180, Short.MAX_VALUE)
@@ -239,7 +256,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(Role, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -262,20 +279,8 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(259, 0, 310, 380);
 
         pack();
         setLocationRelativeTo(null);
@@ -297,41 +302,40 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        if(Role.getSelectedItem().toString().equals("Seller")){
-        String Query = "select * from banhang.taikhoan where `Tài Khoản`= '"+ ID.getText()+"' and `Mật Khẩu` = '"+ MK.getText()+"'";
-        try {
+        if (Role.getSelectedItem().toString().equals("Seller")) {
+            String Query = "select * from banhang.taikhoan where `Tài Khoản`= '" + ID.getText() + "' and `Mật Khẩu` = '" + MK.getText() + "'";
+            try {
 
-            Con = ClassData.ConnectDb();
-            St= Con.createStatement();
-            Rs =St.executeQuery(Query);
-            if(Rs.next()){
-                new WellcomeScreen().setVisible(true);
-                this.dispose();
-                role();
+                Con = ClassData.ConnectDb();
+                St = Con.createStatement();
+                Rs = St.executeQuery(Query);
+                if (Rs.next()) {
+                    new WellcomeScreenNV().setVisible(true);
+                    this.dispose();
+                    role();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
-            else {
-                JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
-            }
-        } catch (SQLException ex) {           
-            ex.printStackTrace();
-        }
-        }else{         
-            String Query = "select * from banhang.taikhoan where `Tài Khoản`= '"+ ID.getText()+"' and `Mật Khẩu` = '"+ MK.getText()+"'";
-        try {
+        } else {
+            String Query = "select * from banhang.taikhoan where `Tài Khoản`= '" + ID.getText() + "' and `Mật Khẩu` = '" + MK.getText() + "'";
+            try {
 
-            Con = ClassData.ConnectDb();
-            St= Con.createStatement();
-            Rs =St.executeQuery(Query);
-            if(Rs.next()){
-                new WellcomeScreen().setVisible(true);
-                this.dispose();
+                Con = ClassData.ConnectDb();
+                St = Con.createStatement();
+                Rs = St.executeQuery(Query);
+                if (Rs.next()) {
+                    new WellcomeScreen().setVisible(true);
+
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
-            else {
-                JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
-            }
-        } catch (SQLException ex) {           
-            ex.printStackTrace();
-        }
         }
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -340,6 +344,46 @@ public class Login extends javax.swing.JFrame {
         ID.setText("");
         MK.setText("");
     }//GEN-LAST:event_HuyMouseClicked
+
+    private void MKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MKKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (Role.getSelectedItem().toString().equals("Seller")) {
+                String Query = "select * from banhang.taikhoan where `Tài Khoản`= '" + ID.getText() + "' and `Mật Khẩu` = '" + MK.getText() + "'";
+                try {
+
+                    Con = ClassData.ConnectDb();
+                    St = Con.createStatement();
+                    Rs = St.executeQuery(Query);
+                    if (Rs.next()) {
+                        new WellcomeScreenNV().setVisible(true);
+                        this.dispose();
+                        role();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+                String Query = "select * from banhang.taikhoan where `Tài Khoản`= '" + ID.getText() + "' and `Mật Khẩu` = '" + MK.getText() + "'";
+                try {
+
+                    Con = ClassData.ConnectDb();
+                    St = Con.createStatement();
+                    Rs = St.executeQuery(Query);
+                    if (Rs.next()) {
+                        new WellcomeScreen().setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }//GEN-LAST:event_MKKeyPressed
 
     /**
      * @param args the command line arguments

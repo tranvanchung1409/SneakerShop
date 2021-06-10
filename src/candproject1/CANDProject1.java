@@ -16,6 +16,7 @@ public class CANDProject1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Splash.main(new String[0]);
+
     }
-    
 }
