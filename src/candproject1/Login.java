@@ -28,21 +28,7 @@ public class Login extends javax.swing.JFrame {
     Connection Con = null;
     Statement St = null;
     ResultSet Rs = null;
-    private WellcomeScreen frame2;
-
-    public String role() {
-        String S = Role.getSelectedItem().toString();
-        String a = "Admin";
-        String b = "Seller";
-        if (S == a) {
-            return a;
-        }
-        if (S == b) {
-            return b;
-        }
-        return null;
-    }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -122,7 +108,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBounds(0, 0, 260, 380);
 
         Role.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        Role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Seller" }));
+        Role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Employee", " " }));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 85, 0));
@@ -301,9 +287,25 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
-        if (Role.getSelectedItem().toString().equals("Seller")) {
-            String Query = "select * from banhang.taikhoan where `Tài Khoản`= '" + ID.getText() + "' and `Mật Khẩu` = '" + MK.getText() + "'";
+         if (Role.getSelectedItem().toString().equals("Admin")) {
+            String Query = "select * from banhang.taikhoan where `taikhoan`= '" + ID.getText() + "' and `matkhau` = '" + MK.getText() + "'and `vaitro` = '" + Role.getSelectedItem().toString() + "'";
+            try {
+
+                Con = ClassData.ConnectDb();
+                St = Con.createStatement();
+                Rs = St.executeQuery(Query);
+                if (Rs.next()) {
+                    new WellcomeScreen().setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, ex);
+            }
+        } else {
+            String Query = "select * from banhang.taikhoan where `taikhoan`= '" + ID.getText() + "' and `matkhau` = '" + MK.getText() + "'and `vaitro` = '" + Role.getSelectedItem().toString() + "'";
             try {
 
                 Con = ClassData.ConnectDb();
@@ -312,29 +314,12 @@ public class Login extends javax.swing.JFrame {
                 if (Rs.next()) {
                     new WellcomeScreenNV().setVisible(true);
                     this.dispose();
-                    role();
                 } else {
                     JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
-            }
-        } else {
-            String Query = "select * from banhang.taikhoan where `Tài Khoản`= '" + ID.getText() + "' and `Mật Khẩu` = '" + MK.getText() + "'";
-            try {
-
-                Con = ClassData.ConnectDb();
-                St = Con.createStatement();
-                Rs = St.executeQuery(Query);
-                if (Rs.next()) {
-                    new WellcomeScreen().setVisible(true);
-
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
-                }
-            } catch (SQLException ex) {
-                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, ex);
             }
         }
     }//GEN-LAST:event_jButton2MouseClicked
@@ -348,40 +333,7 @@ public class Login extends javax.swing.JFrame {
     private void MKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MKKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (Role.getSelectedItem().toString().equals("Seller")) {
-                String Query = "select * from banhang.taikhoan where `Tài Khoản`= '" + ID.getText() + "' and `Mật Khẩu` = '" + MK.getText() + "'";
-                try {
-
-                    Con = ClassData.ConnectDb();
-                    St = Con.createStatement();
-                    Rs = St.executeQuery(Query);
-                    if (Rs.next()) {
-                        new WellcomeScreenNV().setVisible(true);
-                        this.dispose();
-                        role();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
-                    }
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-            } else {
-                String Query = "select * from banhang.taikhoan where `Tài Khoản`= '" + ID.getText() + "' and `Mật Khẩu` = '" + MK.getText() + "'";
-                try {
-
-                    Con = ClassData.ConnectDb();
-                    St = Con.createStatement();
-                    Rs = St.executeQuery(Query);
-                    if (Rs.next()) {
-                        new WellcomeScreen().setVisible(true);
-                        this.dispose();
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng");
-                    }
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-            }
+            jButton2MouseClicked(null);
         }
     }//GEN-LAST:event_MKKeyPressed
 

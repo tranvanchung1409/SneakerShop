@@ -7,16 +7,13 @@ package candproject1;
 
 import Data.ClassData;
 import java.awt.Color;
-import java.awt.List;
 import java.awt.event.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 import java.sql.Statement;
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -33,39 +30,20 @@ public class Customer extends javax.swing.JFrame {
         setMaKH();
         BangKH.setDefaultEditor(Object.class, null);
         it = this;
-//        getData();
     }
+
     Connection Con = null;
     Statement St = null;
     ResultSet Rs = null;
+
+    int mousepX;
+    int mousepY;
+
     public static Customer it;
-    
+
     public void setRole(String Role) { // Set tên cho của sổ này
         role.setText(Role);
     }
-
-////Lấy Mail
-//    public static List<> getData() {
-//        List<mail> listEmail = new ArrayList<>();
-//        ResultSet result = null;
-//        Con = ClassData.ConnectDb();
-//        try {
-//            St = Con.createStatement();
-//            Rs = St.executeQuery("Select * from banhang.Khachhang");
-//            while (Rs.next()) {
-//                String e = Rs.getString("emailKH");
-//                r = e + ",";
-//                
-//              //  System.out.println(r);
-//             
-//            } 
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        
-//
-//    }
 
 //show bảng
     public void ChonKH() {
@@ -135,7 +113,6 @@ public class Customer extends javax.swing.JFrame {
         DiemKH = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         EmailKH = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -147,6 +124,8 @@ public class Customer extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -156,7 +135,6 @@ public class Customer extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 85, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(1200, 606));
-        jPanel1.setLayout(null);
 
         jPanel2.setPreferredSize(new java.awt.Dimension(1000, 540));
 
@@ -310,7 +288,13 @@ public class Customer extends javax.swing.JFrame {
         jLabel13.setText("Email");
         jLabel13.setToolTipText("");
 
+        DiemKH.setEditable(false);
         DiemKH.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        DiemKH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DiemKHActionPerformed(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 85, 0));
@@ -319,22 +303,12 @@ public class Customer extends javax.swing.JFrame {
 
         EmailKH.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
-        jButton1.setText("Lấy Maiil");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(546, 546, 546)
                         .addComponent(Xoa, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -349,9 +323,11 @@ public class Customer extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(Timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Tim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(87, 87, 87)
-                                .addComponent(jButton1)))))
+                                .addComponent(Tim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(324, 324, 324))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(375, 375, 375)
@@ -364,7 +340,7 @@ public class Customer extends javax.swing.JFrame {
                         .addComponent(Them, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(98, 98, 98)
                         .addComponent(Sua, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Huy, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(104, 104, 104))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -389,7 +365,7 @@ public class Customer extends javax.swing.JFrame {
                             .addComponent(SdtKH, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                             .addComponent(PhanhoiKH)
                             .addComponent(DiachiKH))
-                        .addContainerGap(88, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {Huy, Sua, Them, Xoa});
@@ -444,23 +420,18 @@ public class Customer extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Tim, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1))
+                    .addComponent(Tim, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Timkiem, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {Huy, Sua, Them, Xoa});
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {DiachiKH, DiemKH, EmailKH, MaKH, SdtKH, TenKH});
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(157, 46, 1000, 630);
 
         jLabel23.setBackground(new java.awt.Color(0, 60, 0));
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/hd-icon.png"))); // NOI18N
@@ -471,8 +442,6 @@ public class Customer extends javax.swing.JFrame {
                 jLabel23MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel23);
-        jLabel23.setBounds(24, 434, 104, 90);
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(204, 204, 0));
@@ -483,8 +452,6 @@ public class Customer extends javax.swing.JFrame {
                 jLabel27MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel27);
-        jLabel27.setBounds(24, 530, 104, 28);
 
         jLabel22.setBackground(new java.awt.Color(0, 60, 0));
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -496,8 +463,6 @@ public class Customer extends javax.swing.JFrame {
                 jLabel22MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel22);
-        jLabel22.setBounds(24, 282, 104, 100);
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(204, 204, 0));
@@ -508,8 +473,6 @@ public class Customer extends javax.swing.JFrame {
                 jLabel25MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel25);
-        jLabel25.setBounds(24, 388, 104, 28);
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(204, 204, 0));
@@ -520,8 +483,6 @@ public class Customer extends javax.swing.JFrame {
                 jLabel26MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel26);
-        jLabel26.setBounds(24, 244, 104, 28);
 
         jLabel12.setBackground(new java.awt.Color(0, 60, 0));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -533,9 +494,8 @@ public class Customer extends javax.swing.JFrame {
                 jLabel12MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(24, 134, 104, 104);
 
+        jLoguot.setBackground(new java.awt.Color(102, 102, 102));
         jLoguot.setFont(new java.awt.Font("Arial", 3, 15)); // NOI18N
         jLoguot.setForeground(new java.awt.Color(255, 255, 255));
         jLoguot.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -543,6 +503,7 @@ public class Customer extends javax.swing.JFrame {
         jLoguot.setToolTipText("");
         jLoguot.setMaximumSize(new java.awt.Dimension(87, 15));
         jLoguot.setMinimumSize(new java.awt.Dimension(87, 15));
+        jLoguot.setOpaque(true);
         jLoguot.setPreferredSize(new java.awt.Dimension(87, 15));
         jLoguot.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -551,22 +512,27 @@ public class Customer extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLoguotMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLoguotMouseExited(evt);
+            }
         });
-        jPanel1.add(jLoguot);
-        jLoguot.setBounds(24, 646, 104, 30);
 
-        role.setBackground(new java.awt.Color(0, 0, 0));
+        role.setBackground(new java.awt.Color(0, 51, 51));
         role.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         role.setForeground(new java.awt.Color(255, 204, 204));
         role.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         role.setText("ADMIN");
-        role.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                roleMouseClicked(evt);
+        role.setOpaque(true);
+        role.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                roleMouseDragged(evt);
             }
         });
-        jPanel1.add(role);
-        role.setBounds(15, 88, 132, 28);
+        role.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                roleMousePressed(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -588,8 +554,6 @@ public class Customer extends javax.swing.JFrame {
                 jLabel2MouseExited(evt);
             }
         });
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(1118, 1, 40, 27);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
@@ -608,10 +572,9 @@ public class Customer extends javax.swing.JFrame {
                 jLabel1MouseExited(evt);
             }
         });
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(1159, 1, 40, 27);
 
         jLabel14.setBackground(new java.awt.Color(0, 140, 0));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/home-iconnn.png"))); // NOI18N
         jLabel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 0), 2, true));
         jLabel14.setOpaque(true);
@@ -620,8 +583,100 @@ public class Customer extends javax.swing.JFrame {
                 jLabel14MouseClicked(evt);
             }
         });
-        jPanel1.add(jLabel14);
-        jLabel14.setBounds(0, 0, 49, 49);
+
+        jLabel15.setBackground(new java.awt.Color(0, 60, 0));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/NCC-icon.png"))); // NOI18N
+        jLabel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 155, 0), 2, true));
+        jLabel15.setOpaque(true);
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(204, 204, 0));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("Nhà Cung Cấp");
+        jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel28MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLoguot, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel12, jLabel15, jLabel22, jLabel23});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel15)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel12)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLoguot, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(22, 22, 22))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel12, jLabel15, jLabel22, jLabel23});
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1200, 700);
@@ -631,11 +686,10 @@ public class Customer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ThemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThemMouseClicked
-        // TODO add your handling code here:
         if (MaKH.getText().isEmpty() || TenKH.getText().isEmpty()
                 || PhanhoiKH.getText().isEmpty()
                 || SdtKH.getText().isEmpty() || DiachiKH.getText().isEmpty()
-                || EmailKH.getText().isEmpty() || DiemKH.getText().isEmpty()) {
+                || EmailKH.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nhập Thiếu Thông Tin!");
         } else {
             try {
@@ -648,7 +702,7 @@ public class Customer extends javax.swing.JFrame {
                     add.setString(3, DiachiKH.getText());
                     add.setString(4, SdtKH.getText());
                     add.setString(5, EmailKH.getText());
-                    add.setString(6, DiemKH.getText());
+                    add.setString(6, "0");
                     add.setString(7, PhanhoiKH.getText());
                     int row = add.executeUpdate();
                     JOptionPane.showMessageDialog(this, "Thêm Khách Hàng Thành Công!");
@@ -663,21 +717,17 @@ public class Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_ThemMouseClicked
 
     private void BangKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BangKHMouseClicked
-        // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) BangKH.getModel();
         int Myindex = BangKH.getSelectedRow();
-        MaKH.setText(model.getValueAt(Myindex, 0).toString());
-        TenKH.setText(model.getValueAt(Myindex, 1).toString());
-        DiachiKH.setText(model.getValueAt(Myindex, 2).toString());
-        SdtKH.setText(model.getValueAt(Myindex, 3).toString());
-//        EmailKH.setText(model.getValueAt(Myindex, 4).toString());
-//        DiemKH.setText(model.getValueAt(Myindex, 5).toString());
         try {
             Con = ClassData.ConnectDb();
-            String tk = Timkiem.getText();
             St = Con.createStatement();
             Rs = St.executeQuery("Select * from banhang.Khachhang where `maKH` like '" + model.getValueAt(Myindex, 0).toString() + "' ");
             while (Rs.next()) {
+                MaKH.setText(Rs.getString("maKH"));
+                TenKH.setText(Rs.getString("tenKH"));
+                DiachiKH.setText(Rs.getString("diachiKH"));
+                SdtKH.setText(Rs.getString("sdtKH"));
                 EmailKH.setText(Rs.getString("emailKH"));
                 DiemKH.setText(Rs.getString("diemKH"));
                 PhanhoiKH.setText(Rs.getString("phanhoiKH"));
@@ -688,7 +738,6 @@ public class Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_BangKHMouseClicked
 
     private void HuyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HuyMouseClicked
-        // TODO add your handling code here:
         setMaKH();
         TenKH.setText("");
         DiachiKH.setText("");
@@ -700,8 +749,7 @@ public class Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_HuyMouseClicked
 
     private void XoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_XoaMouseClicked
-        // TODO add your handling code here:
-        if (MaKH.getText().isEmpty()) {
+        if (MaKH.getText().isEmpty() || TenKH.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Chọn Khách Hàng Cần Xóa!");
         } else {
             try {
@@ -709,7 +757,7 @@ public class Customer extends javax.swing.JFrame {
                 int ketqua = JOptionPane.showConfirmDialog(this, "Xóa Khách Hàng?", "Chú ý", JOptionPane.YES_NO_OPTION);
                 if (ketqua == JOptionPane.YES_OPTION) {
                     String Makh = MaKH.getText();
-                    String Query = "Delete from banhang.Khachhang where maKH =" + Makh;
+                    String Query = "Delete from banhang.Khachhang Where maKH =" + Makh;
                     Statement Add = Con.createStatement();
                     Add.executeUpdate(Query);
                     ChonKH();
@@ -757,11 +805,6 @@ public class Customer extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_TimActionPerformed
 
-    private void roleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roleMouseClicked
-        new WellcomeScreen().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_roleMouseClicked
-
     private void jLoguotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLoguotMouseClicked
         new Login().setVisible(true);
         this.dispose();
@@ -770,47 +813,68 @@ public class Customer extends javax.swing.JFrame {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         new Product().setVisible(true);
         this.dispose();
+        if (role.getText() == "EMPLOYEE") {
+            Product.it.setRole("EMPLOYEE");
+        } else {
+            Product.it.setRole("ADMIN");
+        }
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
         new Product().setVisible(true);
         this.dispose();
+        if (role.getText() == "EMPLOYEE") {
+            Product.it.setRole("EMPLOYEE");
+        } else {
+            Product.it.setRole("ADMIN");
+        }
     }//GEN-LAST:event_jLabel26MouseClicked
 
     private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
-        // TODO add your handling code here:
-        new Events().setVisible(true);
-        this.dispose();
+        new Event().setVisible(true);
+        if (role.getText() == "EMPLOYEE") {
+            Event.it.setRole("EMPLOYEE");
+        } else {
+            Event.it.setRole("ADMIN");
+        }
     }//GEN-LAST:event_jLabel22MouseClicked
 
     private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
-        // TODO add your handling code here:
-        new Events().setVisible(true);
-        this.dispose();
+        new Event().setVisible(true);
+        if (role.getText() == "EMPLOYEE") {
+            Event.it.setRole("EMPLOYEE");
+        } else {
+            Event.it.setRole("ADMIN");
+        }
     }//GEN-LAST:event_jLabel25MouseClicked
 
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
-        // TODO add your handling code here:
-        new Hoadon().setVisible(true);
-        this.dispose();
+        new Bill().setVisible(true);
+        if (role.getText() == "EMPLOYEE") {
+            Bill.it.setRole("EMPLOYEE");
+        } else {
+            Bill.it.setRole("ADMIN");
+        }
     }//GEN-LAST:event_jLabel23MouseClicked
 
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
         // TODO add your handling code here:
-        new Hoadon().setVisible(true);
-        this.dispose();
+        new Bill().setVisible(true);
+        if (role.getText() == "EMPLOYEE") {
+            Bill.it.setRole("EMPLOYEE");
+        } else {
+            Bill.it.setRole("ADMIN");
+        }
     }//GEN-LAST:event_jLabel27MouseClicked
 
     private void TimkiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TimkiemKeyPressed
-        // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             TimActionPerformed(null);
         }
     }//GEN-LAST:event_TimkiemKeyPressed
 
     private void jLoguotMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLoguotMouseEntered
-        // TODO add your handling code here:
-        // jLoguot.setText("<html><u>Đăng Xuất</u>");
+        jLoguot.setText("<html><u>Đăng Xuất</u>");
     }//GEN-LAST:event_jLoguotMouseEntered
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -818,41 +882,35 @@ public class Customer extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
-        // TODO add your handling code here:
         jLabel2.setBackground(Color.LIGHT_GRAY);
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-        // TODO add your handling code here:
         jLabel2.setBackground(Color.WHITE);
     }//GEN-LAST:event_jLabel2MouseExited
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-        // TODO add your handling code here:
         jLabel1.setBackground(Color.RED);
         jLabel1.setForeground(Color.WHITE);
     }//GEN-LAST:event_jLabel1MouseEntered
 
     private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
-        // TODO add your handling code here:
         jLabel1.setBackground(Color.WHITE);
         jLabel1.setForeground(Color.BLACK);
     }//GEN-LAST:event_jLabel1MouseExited
 
     private void BangKHMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BangKHMousePressed
-        // TODO add your handling code here:
         if (evt.getClickCount() == 2 && !evt.isConsumed()) {
             evt.consume();
-            new HoaDonKH().setVisible(true);
+            new Supplier().setVisible(true);
         }
     }//GEN-LAST:event_BangKHMousePressed
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        // TODO add your handling code here:
         if (role.getText() == "ADMIN") {
             new WellcomeScreen().setVisible(true);
         } else {
@@ -861,13 +919,8 @@ public class Customer extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jLabel14MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-     //   System.out.println(getData());
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void SuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SuaActionPerformed
-        if (MaKH.getText().isEmpty() && TenKH.getText().isEmpty()
+        if (TenKH.getText().isEmpty()
                 && PhanhoiKH.getText().isEmpty()
                 && SdtKH.getText().isEmpty() && DiachiKH.getText().isEmpty()
                 && EmailKH.getText().isEmpty() && DiemKH.getText().isEmpty()) {
@@ -880,8 +933,8 @@ public class Customer extends javax.swing.JFrame {
                     String Query = "Update banhang.Khachhang set tenKH='" + TenKH.getText() + "',"
                             + "                 phanhoiKH ='" + PhanhoiKH.getText() + "',"
                             + "                  sdtKH ='" + SdtKH.getText() + "',"
-                            + "                  diachiKH ='" + DiachiKH.getText() + "'"
-                            + "                  'emailKH' = '" + EmailKH.getText() + "',"
+                            + "                 diachiKH ='" + DiachiKH.getText() + "',"
+                            + "                 emailKH ='" + EmailKH.getText() + "',"
                             + "                  diemKH ='" + DiemKH.getText() + "'where  maKH =" + MaKH.getText();
 
                     Statement Add = Con.createStatement();
@@ -895,6 +948,46 @@ public class Customer extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_SuaActionPerformed
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        new Supplier().setVisible(true);
+        this.dispose();
+        if (role.getText() == "EMPLOYEE") {
+            Supplier.it.setRole("EMPLOYEE");
+        } else {
+            Supplier.it.setRole("ADMIN");
+        }
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
+        new Supplier().setVisible(true);
+        this.dispose();
+        if (role.getText() == "EMPLOYEE") {
+            Supplier.it.setRole("EMPLOYEE");
+        } else {
+            Supplier.it.setRole("ADMIN");
+        }
+    }//GEN-LAST:event_jLabel28MouseClicked
+
+    private void jLoguotMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLoguotMouseExited
+        jLoguot.setText("Đăng Xuất");
+    }//GEN-LAST:event_jLoguotMouseExited
+
+    private void roleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roleMousePressed
+        mousepX = evt.getX();
+        mousepY = evt.getY();
+    }//GEN-LAST:event_roleMousePressed
+
+    private void roleMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roleMouseDragged
+        int kordinatX = evt.getXOnScreen();
+        int kordinatY = evt.getYOnScreen();
+
+        this.setLocation(kordinatX - mousepX, kordinatY - mousepY);
+    }//GEN-LAST:event_roleMouseDragged
+
+    private void DiemKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiemKHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DiemKHActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -950,13 +1043,13 @@ public class Customer extends javax.swing.JFrame {
     private javax.swing.JButton Tim;
     private javax.swing.JTextField Timkiem;
     private javax.swing.JButton Xoa;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
@@ -964,6 +1057,7 @@ public class Customer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

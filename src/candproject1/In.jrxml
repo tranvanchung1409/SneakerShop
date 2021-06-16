@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eb2d058c-6d3d-462a-bf41-a7962d03293e">
+	<property name="ireport.zoom" value="1.1000000000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="maHD" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     danhsachhoadon.`maHD` AS danhsachhoadon_maHD,
+     danhsachhoadon.`maHD` AS danhsachhoadon_maHD,
+     danhsachhoadon.`maKH` AS danhsachhoadon_maKH,
+     danhsachhoadon.`maKH` AS danhsachhoadon_maKH,
+     danhsachhoadon.`ngaylapHD` AS danhsachhoadon_ngaylapHD,
+     danhsachhoadon.`ngaylapHD` AS danhsachhoadon_ngaylapHD,
+     danhsachhoadon.`giaHD` AS danhsachhoadon_giaHD,
+     danhsachhoadon.`giaHD` AS danhsachhoadon_giaHD,
+     danhsachhoadon.`ghichuHD` AS danhsachhoadon_ghichuHD,
+     danhsachhoadon.`ghichuHD` AS danhsachhoadon_ghichuHD,
+     danhsachhoadon.`maNV` AS danhsachhoadon_maNV,
+     hoadon.`maHD` AS hoadon_maHD,
+     hoadon.`maHD` AS hoadon_maHD,
+     hoadon.`maSP` AS hoadon_maSP,
+     hoadon.`maSP` AS hoadon_maSP,
+     hoadon.`soluongHD` AS hoadon_soluongHD,
+     hoadon.`soluongHD` AS hoadon_soluongHD,
+     hoadon.`thanhtienHD` AS hoadon_thanhtienHD,
+     hoadon.`thanhtienHD` AS hoadon_thanhtienHD,
+     khachhang.`maKH` AS khachhang_maKH,
+     khachhang.`maKH` AS khachhang_maKH,
+     khachhang.`tenKH` AS khachhang_tenKH,
+     khachhang.`tenKH` AS khachhang_tenKH,
+     khachhang.`diachiKH` AS khachhang_diachiKH,
+     khachhang.`diachiKH` AS khachhang_diachiKH,
+     khachhang.`sdtKH` AS khachhang_sdtKH,
+     khachhang.`sdtKH` AS khachhang_sdtKH,
+     nhanvien.`maNV` AS nhanvien_maNV,
+     nhanvien.`maNV` AS nhanvien_maNV,
+     nhanvien.`tenNV` AS nhanvien_tenNV,
+     nhanvien.`tenNV` AS nhanvien_tenNV,
+     sanpham.`maSP` AS sanpham_maSP,
+     sanpham.`maSP` AS sanpham_maSP,
+     sanpham.`tenSP` AS sanpham_tenSP,
+     sanpham.`tenSP` AS sanpham_tenSP,
+     khachhang.`diemKH` AS khachhang_diemKH,
+     khachhang.`diemKH` AS khachhang_diemKH,
+     sanpham.`giaSP` AS sanpham_giaSP,
+     sanpham.`giaSP` AS sanpham_giaSP
+FROM
+     `danhsachhoadon` danhsachhoadon INNER JOIN `hoadon` hoadon ON danhsachhoadon.`maHD` = hoadon.`maHD`
+     INNER JOIN `khachhang` khachhang ON danhsachhoadon.`maKH` = khachhang.`maKH`
+     INNER JOIN `nhanvien` nhanvien ON danhsachhoadon.`maNV` = nhanvien.`maNV`
+     INNER JOIN `sanpham` sanpham ON hoadon.`maSP` = sanpham.`maSP`
+WHERE
+     danhsachhoadon.maHD = $P{maHD}]]>
+	</queryString>
+	<field name="danhsachhoadon_maHD" class="java.lang.Integer"/>
+	<field name="danhsachhoadon_maKH" class="java.lang.Integer"/>
+	<field name="danhsachhoadon_ngaylapHD" class="java.sql.Date"/>
+	<field name="danhsachhoadon_giaHD" class="java.lang.Integer"/>
+	<field name="danhsachhoadon_ghichuHD" class="java.lang.String"/>
+	<field name="danhsachhoadon_maNV" class="java.lang.Integer"/>
+	<field name="hoadon_maHD" class="java.lang.Integer"/>
+	<field name="hoadon_maSP" class="java.lang.Integer"/>
+	<field name="hoadon_soluongHD" class="java.lang.Integer"/>
+	<field name="hoadon_thanhtienHD" class="java.lang.Integer"/>
+	<field name="khachhang_maKH" class="java.lang.Integer"/>
+	<field name="khachhang_tenKH" class="java.lang.String"/>
+	<field name="khachhang_diachiKH" class="java.lang.String"/>
+	<field name="khachhang_sdtKH" class="java.lang.String"/>
+	<field name="nhanvien_maNV" class="java.lang.Integer"/>
+	<field name="nhanvien_tenNV" class="java.lang.String"/>
+	<field name="sanpham_maSP" class="java.lang.Integer"/>
+	<field name="sanpham_tenSP" class="java.lang.String"/>
+	<field name="khachhang_diemKH" class="java.lang.Integer"/>
+	<field name="sanpham_giaSP" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement x="135" y="23" width="303" height="38" uuid="b1a65b59-6ab6-48d5-a4f9-cfde1bb22dad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="28" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HÓA ĐƠN BÁN HÀNG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="61" width="137" height="30" uuid="51a69a13-029d-43ae-85d5-732012389dbc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[CAND Sneaker]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="299" y="74" width="96" height="30" uuid="9fb28d1f-f44d-49b6-bd76-5be83e65326d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Địa Chỉ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="14" width="96" height="30" uuid="6f0a1fdc-0551-478d-b1fc-772e077796aa"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số Hóa Đơn: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="395" y="74" width="160" height="30" uuid="c3a351da-d9ca-4d5d-b3d0-d2ad364097e1"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{khachhang_diachiKH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="44" width="160" height="30" uuid="1174921e-6920-41f3-b323-9310ac9f0d15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{danhsachhoadon_ngaylapHD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="74" width="96" height="30" uuid="ba967055-1a6b-46c9-905a-8d83035c6f4b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nhân Viên:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="44" width="96" height="30" uuid="2233e936-ed82-4afd-9e9b-0e687a5dec77"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ngày Tạo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="395" y="14" width="160" height="30" uuid="3c8a7494-ba09-4bfc-a0f1-49979c45762c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{khachhang_tenKH}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="299" y="14" width="96" height="30" uuid="afc9f396-7a77-4fe1-a23e-4e0ad641a1d7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Khách Hàng]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="97" y="14" width="160" height="30" uuid="9e683460-4da6-4166-a505-49da97d1a9f8"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{danhsachhoadon_maHD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="299" y="44" width="96" height="30" uuid="360fc8a2-7eca-4fea-9fa8-64fb1d9477cf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số Điện Thoại:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="97" y="74" width="160" height="30" uuid="2d75c68f-7a38-4976-b689-f25a5220ee6a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nhanvien_tenNV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="44" width="160" height="30" uuid="a318b312-5110-4be2-91c1-0171ba01df41"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{khachhang_sdtKH}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="124" width="554" height="1" uuid="a7c304b9-eadc-4a03-be94-715772b8e5c5"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="352" y="0" width="96" height="30" uuid="a29a8c28-2a55-46f7-b63d-9ee46f44e932"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thành Tiền]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="0" width="77" height="30" uuid="9f8c05c8-8a15-4422-96ba-c6be49edd324"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Giá Bán]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="0" width="108" height="30" uuid="3ed7e4e1-62d1-4adf-a8a8-d60e942ef0de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ghi Chú]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="0" width="63" height="30" uuid="3ddf10f6-b120-44ea-82c6-dff07d4dbd79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Số Lượng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="0" width="69" height="30" uuid="0d6a2578-6734-417c-8a7a-87d4522964a8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mã Sản Phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="0" width="142" height="30" uuid="540d5dcd-1de1-4fc0-816f-f696a124a5eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tên Sản Phẩm]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="30" width="553" height="1" uuid="1f7054b9-2988-4f6f-b19b-606addd417c4"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="289" y="0" width="63" height="30" uuid="2aac9013-cf3b-4e6d-9d86-743a6e9ffd79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{hoadon_soluongHD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="0" width="108" height="30" uuid="8d0953c5-b4ba-421d-af02-8b512a808460"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{danhsachhoadon_ghichuHD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="0" width="96" height="30" uuid="196f8e99-836e-4872-8071-e58adc7366bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{hoadon_thanhtienHD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="0" width="77" height="30" uuid="f415b076-c54d-44d4-90de-e48d60fc901c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sanpham_giaSP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="0" width="142" height="30" uuid="a9521143-a093-4833-a743-8cc2eb3d27d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sanpham_tenSP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="0" width="69" height="30" uuid="62ce19c0-9e3e-4093-944a-d4725b2c81ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sanpham_maSP}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="32" width="552" height="1" uuid="fdb8b235-d159-4ae9-96c5-50cc9c848d59"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="290" y="0" width="86" height="30" uuid="cdffbc82-2570-4a99-8d5e-7c64a86f34ad"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tổng Tiền:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="376" y="0" width="137" height="30" uuid="cd7db3bd-63c0-4e50-84e2-bf030dde16c7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{danhsachhoadon_giaHD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="513" y="0" width="43" height="30" uuid="35aadc95-43f9-448e-bb99-f7cd3e085371"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VND]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="150" y="33" width="278" height="21" uuid="bf4f99db-f963-4549-b6de-3c9b2543ff5d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Xin Cảm Ơn Quý Khách/Thank You!]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

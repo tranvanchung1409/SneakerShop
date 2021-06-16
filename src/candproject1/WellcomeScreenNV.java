@@ -19,7 +19,7 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
     public WellcomeScreenNV() {
         initComponents();
     }
-  
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,26 +32,27 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        jsk = new javax.swing.JLabel();
+        sk = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
+        jhd = new javax.swing.JLabel();
+        hd = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
+        jkh = new javax.swing.JLabel();
+        kh = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        sp = new javax.swing.JLabel();
+        jsp = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jncc = new javax.swing.JLabel();
+        ncc = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        role = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(870, 500));
@@ -75,113 +76,148 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/events-icon.png"))); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jsk.setBackground(new java.awt.Color(255, 255, 255));
+        jsk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jsk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/events-icon.png"))); // NOI18N
+        jsk.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                jskMouseClicked(evt);
             }
         });
 
-        jLabel24.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("Sự Kiện");
+        sk.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        sk.setForeground(new java.awt.Color(51, 0, 0));
+        sk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sk.setText("Sự Kiện");
+        sk.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                skMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jsk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+            .addComponent(sk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                .addComponent(jsk, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(sk, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 180));
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 102), 2, true));
 
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Bill-icon.png"))); // NOI18N
+        jhd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jhd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Bill-icon.png"))); // NOI18N
+        jhd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jhdMouseClicked(evt);
+            }
+        });
 
-        jLabel29.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText("Hóa Đơn");
+        hd.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        hd.setForeground(new java.awt.Color(51, 0, 0));
+        hd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hd.setText("Hóa Đơn");
+        hd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hdMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-            .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jhd, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+            .addComponent(hd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jhd, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(hd, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 180));
         jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 102), 2, true));
 
-        jLabel32.setBackground(new java.awt.Color(255, 255, 180));
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/kh-icon.png"))); // NOI18N
+        jkh.setBackground(new java.awt.Color(255, 255, 180));
+        jkh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jkh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/kh-icon.png"))); // NOI18N
+        jkh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jkhMouseClicked(evt);
+            }
+        });
 
-        jLabel33.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel33.setText("Khách Hàng");
+        kh.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        kh.setForeground(new java.awt.Color(51, 0, 0));
+        kh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kh.setText("Khách Hàng");
+        kh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                khMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+            .addComponent(jkh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(kh, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jkh, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(kh, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 180));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 102), 2, true));
 
-        jLabel26.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel26.setText("Sản Phẩm");
+        sp.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        sp.setForeground(new java.awt.Color(51, 0, 0));
+        sp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sp.setText("Sản Phẩm");
+        sp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                spMouseClicked(evt);
+            }
+        });
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/products-icon.png"))); // NOI18N
+        jsp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jsp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/products-icon.png"))); // NOI18N
+        jsp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jspMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jsp, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+            .addComponent(sp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                .addComponent(jsp, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(sp, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel9.setBackground(new java.awt.Color(120, 188, 160));
@@ -232,27 +268,37 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
         jPanel11.setBackground(new java.awt.Color(255, 255, 180));
         jPanel11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 102), 2, true));
 
-        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/logout.png"))); // NOI18N
+        jncc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jncc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/NCC-icon.png"))); // NOI18N
+        jncc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jnccMouseClicked(evt);
+            }
+        });
 
-        jLabel35.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel35.setText("Đăng Xuất");
+        ncc.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        ncc.setForeground(new java.awt.Color(51, 0, 0));
+        ncc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ncc.setText("Nhà Cung Cấp");
+        ncc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nccMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jncc, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+            .addComponent(ncc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jncc, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ncc, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -288,21 +334,11 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("X");
-        jLabel1.setOpaque(true);
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
-            }
-        });
-
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("_");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel2.setMaximumSize(new java.awt.Dimension(12, 19));
         jLabel2.setMinimumSize(new java.awt.Dimension(12, 19));
         jLabel2.setOpaque(true);
@@ -311,7 +347,38 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
+            }
         });
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("X");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.setOpaque(true);
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel1MouseExited(evt);
+            }
+        });
+
+        role.setBackground(new java.awt.Color(0, 51, 51));
+        role.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        role.setForeground(new java.awt.Color(255, 204, 204));
+        role.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        role.setText("EMPLOYEE");
+        role.setOpaque(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -323,18 +390,23 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
                 .addGap(41, 41, 41))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1))
+                .addGap(0, 0, 0)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(role, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 0, 0)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -345,20 +417,11 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        // TODO add your handling code here:
-        Login login = new Login();
-        String s =  login.role();
-        System.out.print(s);
-        if(s == "Admin"){
-          new Seller().setVisible(true);
-          this.dispose(); 
-        }else{
-          new Product().setVisible(true);
-          this.dispose(); 
-        }
-       
-    }//GEN-LAST:event_jLabel4MouseClicked
+    private void jskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jskMouseClicked
+        new Event().setVisible(true);
+        this.dispose();
+        Event.it.setRole("EMPLOYEE");
+    }//GEN-LAST:event_jskMouseClicked
 
     private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseEntered
         // TODO add your handling code here:
@@ -367,19 +430,93 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
 
     private void jPanel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseExited
         // TODO add your handling code here:
-        System.setProperty ("myColor", "0XFFFFB4");
+        System.setProperty("myColor", "0XFFFFB4");
         jPanel3.setBackground(Color.getColor("myColor"));
     }//GEN-LAST:event_jPanel3MouseExited
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
         this.setState(1);
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
         // TODO add your handling code here:
+        jLabel2.setBackground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+        // TODO add your handling code here:
+        jLabel2.setBackground(Color.WHITE);
+    }//GEN-LAST:event_jLabel2MouseExited
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+        // TODO add your handling code here:
+        jLabel1.setBackground(Color.RED);
+        jLabel1.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+        // TODO add your handling code here:
+        jLabel1.setBackground(Color.WHITE);
+        jLabel1.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jLabel1MouseExited
+
+    private void skMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_skMouseClicked
+        new Event().setVisible(true);
+        this.dispose();
+        Event.it.setRole("EMPLOYEE");
+    }//GEN-LAST:event_skMouseClicked
+
+    private void jspMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jspMouseClicked
+        new Product().setVisible(true);
+        this.dispose();
+        Product.it.setRole("EMPLOYEE");
+    }//GEN-LAST:event_jspMouseClicked
+
+    private void spMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spMouseClicked
+        new Product().setVisible(true);
+        this.dispose();
+        Product.it.setRole("EMPLOYEE");
+    }//GEN-LAST:event_spMouseClicked
+
+    private void jkhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jkhMouseClicked
+        new Customer().setVisible(true);
+        this.dispose();
+        Customer.it.setRole("EMPLOYEE");
+    }//GEN-LAST:event_jkhMouseClicked
+
+    private void khMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_khMouseClicked
+        new Customer().setVisible(true);
+        this.dispose();
+        Customer.it.setRole("EMPLOYEE");
+    }//GEN-LAST:event_khMouseClicked
+
+    private void jhdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jhdMouseClicked
+        new Bill().setVisible(true);
+        this.dispose();
+        Bill.it.setRole("EMPLOYEE");
+    }//GEN-LAST:event_jhdMouseClicked
+
+    private void hdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hdMouseClicked
+        new Bill().setVisible(true);
+        this.dispose();
+        Bill.it.setRole("EMPLOYEE");
+    }//GEN-LAST:event_hdMouseClicked
+
+    private void jnccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jnccMouseClicked
+        new Supplier().setVisible(true);
+        this.dispose();
+        Supplier.it.setRole("EMPLOYEE");
+    }//GEN-LAST:event_jnccMouseClicked
+
+    private void nccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nccMouseClicked
+        new Supplier().setVisible(true);
+        this.dispose();
+        Supplier.it.setRole("EMPLOYEE");
+    }//GEN-LAST:event_nccMouseClicked
 
     /**
      * @param args the command line arguments
@@ -418,19 +555,10 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel hd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -441,5 +569,15 @@ public class WellcomeScreenNV extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel jhd;
+    private javax.swing.JLabel jkh;
+    private javax.swing.JLabel jncc;
+    private javax.swing.JLabel jsk;
+    private javax.swing.JLabel jsp;
+    private javax.swing.JLabel kh;
+    private javax.swing.JLabel ncc;
+    private javax.swing.JLabel role;
+    private javax.swing.JLabel sk;
+    private javax.swing.JLabel sp;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package EmailSender;
 
 import candproject1.Customer;
+import candproject1.Event;
 
 /**
  *
@@ -21,17 +22,20 @@ public class MailConfig {
 
     public static final String APP_EMAIL = "kenhchay01@gmail.com"; // your email
 
-    public static final String APP_PASSWORD = "tcmldhivnloapuwi"; // your password
+    public static final String APP_PASSWORD = "prkjjjgvrdizouhd"; // your password
+    
+    public static String RECEIVE_EMAIL = " ";
 
-    public static String RECEIVE_EMAIL = "";
-
-    static void setmail() {
-         Customer customer = new Customer();
- //        RECEIVE_EMAIL = customer.it.getData();
+    public static String ALL_RECEIVE_EMAIL = " ";
+    
+//vuanh2k0@gmail.com,ngoctran74122@gmail.com,datduocdayy2k@gmail.com
+    static void setAllmail() {
+         Event event = new Event();
+        ALL_RECEIVE_EMAIL = event.it.getData();
     }
-    public static void main(String[] args) {    
-        setmail();
-        Customer customer = new Customer();
-        System.out.println(RECEIVE_EMAIL);
+   public static  String setmail() {
+         Event event = new Event();
+        RECEIVE_EMAIL = event.it.getEmail();
+        return RECEIVE_EMAIL;
     }
 }

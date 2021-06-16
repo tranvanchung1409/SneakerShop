@@ -27,11 +27,13 @@ CREATE TABLE `danhsachhoadon` (
   `maKH` int DEFAULT NULL,
   `ngaylapHD` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `tinhtrangHD` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `giaHD` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `giaHD` int DEFAULT NULL,
   `ghichuHD` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `maNV` int DEFAULT NULL,
   PRIMARY KEY (`maHD`),
-  KEY `maKH_idx` (`maKH`),
-  CONSTRAINT `maKH` FOREIGN KEY (`maKH`) REFERENCES `khachhang` (`maKH`)
+  KEY `maKH_idx` (`maKH`) /*!80000 INVISIBLE */,
+  KEY `maNV_idx` (`maNV`),
+  CONSTRAINT `maKH` FOREIGN KEY (`maKH`) REFERENCES `khachhang` (`maKH`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -41,7 +43,7 @@ CREATE TABLE `danhsachhoadon` (
 
 LOCK TABLES `danhsachhoadon` WRITE;
 /*!40000 ALTER TABLE `danhsachhoadon` DISABLE KEYS */;
-INSERT INTO `danhsachhoadon` VALUES (1,1,'2021-03-01 09:19:05','Đã Hoàn Thành','130061878',''),(3,2,'2021-12-27 11:51:37','Đã Hoàn Thành','10048762','gfgfsdsd'),(4,1,'2021-12-27 09:19:05','Hoàn Thành','x','dtftfg'),(5,1,'2021-12-27 09:19:05','Hoàn Thành','x','dtftfg'),(6,3,'2021-03-21 17:23:01','Hoàn Thành','x','sdsfcxxcxcxc'),(7,3,'2021-12-27 17:23:01','Đã Hoàn Thành','x','sdsfcxxcxcxc'),(8,2,'2021-06-06 15:41:19','Chưa Hoàn Thành','x','ưqwqqwq'),(9,2,'2021-06-06 15:41:19','Chưa Hoàn Thành','0','êrerer'),(10,2,'2021-06-07 12:03:32','Chưa Hoàn Thành','','âsasdsd');
+INSERT INTO `danhsachhoadon` VALUES (1,1,'2021-03-01','Đã Hoàn Thành',130061878,'',3),(4,1,'2021-12-27','Đã Hoàn Thành',11218427,'dtftfg',2),(5,1,'2021-12-27','Đã Hoàn Thành',695351,'dtftfg',1),(6,2,'2021-12-27','Đã Hoàn Thành',0,'sdsd',1),(7,1,'2021-06-14 01:11:42','Chưa Hoàn Thành',0,'d',1);
 /*!40000 ALTER TABLE `danhsachhoadon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,8 +61,8 @@ CREATE TABLE `hoadon` (
   `thanhtienHD` int DEFAULT NULL,
   PRIMARY KEY (`maHD`,`maSP`),
   KEY `maSP_idx` (`maSP`),
-  CONSTRAINT `maHD` FOREIGN KEY (`maHD`) REFERENCES `danhsachhoadon` (`maHD`),
-  CONSTRAINT `maSP` FOREIGN KEY (`maSP`) REFERENCES `sanpham` (`maSP`)
+  CONSTRAINT `maHD` FOREIGN KEY (`maHD`) REFERENCES `danhsachhoadon` (`maHD`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `maSP` FOREIGN KEY (`maSP`) REFERENCES `sanpham` (`maSP`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -70,35 +72,8 @@ CREATE TABLE `hoadon` (
 
 LOCK TABLES `hoadon` WRITE;
 /*!40000 ALTER TABLE `hoadon` DISABLE KEYS */;
-INSERT INTO `hoadon` VALUES (1,1,555555,128888760),(1,2,3,NULL),(1,3,323,750329),(1,4,50,11615),(1,5,23,2),(1,6,23,1),(1,8,555,1161500),(3,1,888,206016),(3,2,4,3),(3,5,2,4),(3,6,2,10000000),(3,7,59,48686),(3,9,3,69),(4,1,888,206016),(4,2,34,10958982),(4,3,2,NULL),(5,1,222,51504),(5,2,3,4),(5,4,23,53429),(6,1,222,51504),(7,1,22,5104),(7,2,34,10958982),(8,3,23,53429),(9,1,222,51504),(9,2,34,10958982),(9,3,3,NULL),(10,1,222,51504),(10,2,34,10958982);
+INSERT INTO `hoadon` VALUES (1,1,555555,128888760),(1,2,3,NULL),(1,3,323,750329),(1,4,50,11615),(1,5,23,2),(1,6,23,1),(1,8,555,1161500),(4,1,888,206016),(4,2,34,10958982),(4,3,2,NULL),(4,4,23,53429),(5,1,222,51504),(5,2,3,4),(5,4,23,53429),(5,7,23,559889),(5,8,55,30525);
 /*!40000 ALTER TABLE `hoadon` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `hoadons`
---
-
-DROP TABLE IF EXISTS `hoadons`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `hoadons` (
-  `maHD` int NOT NULL,
-  `maSP` int NOT NULL,
-  `soluong` int DEFAULT NULL,
-  `dongia` int DEFAULT NULL,
-  `thanhtien` int DEFAULT NULL,
-  PRIMARY KEY (`maHD`,`maSP`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `hoadons`
---
-
-LOCK TABLES `hoadons` WRITE;
-/*!40000 ALTER TABLE `hoadons` DISABLE KEYS */;
-INSERT INTO `hoadons` VALUES (1,1,2,2,NULL),(1,4,2,3,2),(2,4,2,3,2),(3,4,34,43,NULL),(4,3,2,3,2),(4,4,2,3,2),(5,3,NULL,NULL,NULL),(5,4,2,3,2);
-/*!40000 ALTER TABLE `hoadons` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -117,7 +92,7 @@ CREATE TABLE `khachhang` (
   `diemKH` int DEFAULT NULL,
   `phanhoiKH` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`maKH`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +101,7 @@ CREATE TABLE `khachhang` (
 
 LOCK TABLES `khachhang` WRITE;
 /*!40000 ALTER TABLE `khachhang` DISABLE KEYS */;
-INSERT INTO `khachhang` VALUES (1,'Tran Van A','0','7575676','tranvanchung1409@gmail.com',1300,'fff'),(2,'Nguyen Van D','0','0989998877','chungvip1409@gmail.com',11,'aads'),(3,'dfdf','df','df','fdfdf',33,'df');
+INSERT INTO `khachhang` VALUES (1,'Trần Văn Chung','Hưng Yên','012345678','tranvanchung1409@gmail.com',120,'Phù Hợp'),(2,'Bùi Văn Đạt','Hải Phòng','0969696969','datduocdayy2k@gmail.com',0,'sản phẩm tốt'),(3,'Trần Đức Ngọc','Nam Định','098989898','ngoctran74122@gmail.com',0,'Phù hợp giá tiền'),(4,'Vũ Tuấn Anh','Thái Bình','0912121212','vuanh2k0@gmail.com',0,'Đẹp'),(5,'Phạm Thái Hòa ','Nam Định','0987654321','hoaabc@gmai.com',0,'Đẹp, Chất Lượng'),(6,'Lê Quốc Việt','Hà Tĩnh','0912345678','viet123@gmail.com',0,'Giày đẹp'),(7,'Lê Văn A','Hà Nội','0969123456','chungvip1409@gmail.com',0,'Tốt'),(8,'Trần Văn B','Sơn La','0987789987','hieu12@gmail.com',0,'Đẹppppp');
 /*!40000 ALTER TABLE `khachhang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,6 +128,7 @@ CREATE TABLE `nhacungcap` (
 
 LOCK TABLES `nhacungcap` WRITE;
 /*!40000 ALTER TABLE `nhacungcap` DISABLE KEYS */;
+INSERT INTO `nhacungcap` VALUES (1,'Adidas Original','USA','123456789','adidas@gmail.com'),(2,'SneakerLand','England','33434556','sneakerLand@gmail.com'),(3,'ConverseStore','Việt Nam','0987382323','converse@gmail.com'),(4,'Vansvietnam','Hà Nội, Việt Nam','0983272323','vansvn@gmail.com'),(5,'OriginSneaker','Đà Nẵng, Việt Nam','098876645','originsneaker@gmail.com');
 /*!40000 ALTER TABLE `nhacungcap` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,10 +148,10 @@ CREATE TABLE `nhanvien` (
   `sdtNV` varchar(20) COLLATE utf8_bin DEFAULT NULL,
   `diachiNV` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `emailNV` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `luongNV` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `luongNV` int DEFAULT NULL,
   `ngayvaoNV` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`maNV`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +160,7 @@ CREATE TABLE `nhanvien` (
 
 LOCK TABLES `nhanvien` WRITE;
 /*!40000 ALTER TABLE `nhanvien` DISABLE KEYS */;
-INSERT INTO `nhanvien` VALUES (1,'ac','Nam','2323','2323','2323','ẻer','đf','2323','232323'),(2,'ưewe','Nam','ưeww','55555555','ưew','0','ưewe','e','ưewe');
+INSERT INTO `nhanvien` VALUES (1,'Trần Văn A','Nam','14/9/2000','32232322332','232354454','Hà Nội','abcccc@gmail.com',10000000,'22/5/2020'),(2,'Vũ Thị B','Nữ','12/12/2001','55555555','23232323','Hà Nội','abc@gmail.com',5000000,'20/5/2021'),(3,'Nguyễn Văn C','Nam','22/2/2000','3223322323','09878922112','Hà Nội','cde@gmail.com',6000000,'10/1/2021'),(4,'Vũ Văn D','Nam','12/2/2002','33333333','3232323','Hà Nội','aaa@gmail.com',4000000,'3/4/2021'),(5,'Bùi Văn E','Nam','22/9/2000','434343434','0954550878','Hà Nội','eee@gmail.com',6000000,'14/5/2020'),(6,'Nguyễn Minh F','Nam','1/1/2000','3344343434','0978676767','Hà Nội','bbb@gmail.com',4000000,'24/4/2021');
 /*!40000 ALTER TABLE `nhanvien` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,7 +192,7 @@ CREATE TABLE `sanpham` (
 
 LOCK TABLES `sanpham` WRITE;
 /*!40000 ALTER TABLE `sanpham` DISABLE KEYS */;
-INSERT INTO `sanpham` VALUES (1,'acb','Nike',222222,232,'2021-06-05','24d',NULL),(2,'hsjsdklsd','Nike',3400,322323,'2021-06-05','êrer',NULL),(3,'dsdsd','Nike',22323,2323,'2021-06-05','llllll',NULL),(4,'dsdsd','Admin',22323,2323,NULL,'sdsdfd',NULL),(5,'sdsd','Admin',212,1212,NULL,'ưsđssd',NULL),(6,'jordan4','Nike',7778,5000000,NULL,'abc',NULL),(7,'êrer','Nike',2323,24343,'2010','êw',NULL),(8,'fgfg','Nike',5555,555,'2021-06-05','',NULL),(9,'gggg','Nike',444,444,NULL,NULL,NULL);
+INSERT INTO `sanpham` VALUES (1,'Nike Air Mag','Nike',1256,8000000,'2021-06-14','size 39-43',NULL),(2,'Ultra Boost','Adidas',3400,5600000,'2021-06-14','36-43',NULL),(3,'Yeezy 350','Adidas',3567,9800000,'2021-06-14','36-43',NULL),(4,'Converse Chuck Taylor All Star','Converse',22300,1800000,'2021-06-14','36-43',NULL),(5,'Vans old skool','Vans',49865,1500000,'2021-06-14','36-43',NULL),(6,'Air Jordan4','Nike',6868,10000000,'2021-06-14','36-43',NULL),(7,'Converse Chuck II ','Converse',2300,2000000,'2021-06-14','39-43',NULL),(8,'Gel Lite V','Asics',54778,6340000,'2021-06-14','36-43',NULL),(9,'gggg','Nike',444,444,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `sanpham` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,7 +209,7 @@ CREATE TABLE `sukien` (
   `thoigianSK` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `noidungSK` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`idSK`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,7 +218,7 @@ CREATE TABLE `sukien` (
 
 LOCK TABLES `sukien` WRITE;
 /*!40000 ALTER TABLE `sukien` DISABLE KEYS */;
-INSERT INTO `sukien` VALUES (4,'âssa','âdad','adaaaa');
+INSERT INTO `sukien` VALUES (5,'Chào mừng ngày 8/3','8/3 đến 10/3','Giảm giá 20% toàn bộ sản phẩm '),(6,'Chào mừng 30/4 và 1/5','30/4 và 1/5','Giảm giá tới 20%, có tặng quà giá trị tới 200000 đồng');
 /*!40000 ALTER TABLE `sukien` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,12 +230,15 @@ DROP TABLE IF EXISTS `taikhoan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `taikhoan` (
-  `maNV` int NOT NULL AUTO_INCREMENT,
-  `mk` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `role` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `maNV` int NOT NULL,
+  `taikhoan` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `matkhau` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `vaitro` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`maNV`),
-  CONSTRAINT `maNV` FOREIGN KEY (`maNV`) REFERENCES `nhanvien` (`maNV`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  UNIQUE KEY `maNV_UNIQUE` (`maNV`),
+  KEY `maNV_idx` (`maNV`),
+  CONSTRAINT `maNV` FOREIGN KEY (`maNV`) REFERENCES `nhanvien` (`maNV`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -268,7 +247,7 @@ CREATE TABLE `taikhoan` (
 
 LOCK TABLES `taikhoan` WRITE;
 /*!40000 ALTER TABLE `taikhoan` DISABLE KEYS */;
-INSERT INTO `taikhoan` VALUES (1,'aaa',NULL);
+INSERT INTO `taikhoan` VALUES (1,'admin','admin','Admin'),(2,'aaa','bbb','Employee'),(3,'ccc','ddd','Employee'),(4,'eee','fff','Employee'),(5,'ggg','hhh','Employee');
 /*!40000 ALTER TABLE `taikhoan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -281,4 +260,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-10 10:56:49
+-- Dump completed on 2021-06-16 22:19:32
